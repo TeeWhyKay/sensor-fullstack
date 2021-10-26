@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timelog: 2021-10-26 10:49:45
+  device_id: MyString
+  type: 
+  status: false
+
+two:
+  timelog: 2021-10-26 10:49:45
+  device_id: MyString
+  type: 
+  status: false
