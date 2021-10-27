@@ -15,9 +15,18 @@ class SensorsController < ApplicationController
   end
 
   def sensors_last_30_days
-#     sql = "Select *, sensors.timelog::date, count(*) from sensors WHERE status = true AND device_type ='gateway' AND timelog <= '2017-05-0
-# 8 00:00' AND timelog >= '2017-05-01 00:00' group by 1 order by 1"
-
+    device_type = params[:device_type]
+    status = params[:status]
+    end_date = Date.today
+    start_date = Date.today - 20.day
+    # sql = "Select *, sensors.timelog::date, count(*) from sensors
+    # WHERE status = true
+    # AND device_type ='gateway'
+    # AND timelog <= '2017-05-08 00:00'
+    # AND timelog >= '2017-05-01 00:00'
+    # group by 1
+    # order by 1"
+    @sensor_report = Sensor.where(device_type: device_type, status: status, timelog: (start_date.beginning_of_day..end_date.end_of_day)).group("#{Sensor.table_name}.timelog::date").count
   end
 
   private

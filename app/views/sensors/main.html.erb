@@ -1,14 +1,8 @@
 <h1>Sensors#main</h1>
 <p>Find me in app/views/sensors/main.html.erb</p>
 
-<div data-controller="insert-in-list">
-  <div data-insert-in-list-target="items">
-    <!-- [...] -->
-  </div>
-  <%= form_with url: "/", data: { insert_in_list_target: 'form',
-                                  action: 'submit->insert-in-list#send' } do |f| %>
+<%= form_with url: "/", method: :post do |f| %>
     <%= f.label :specified_date, "Top sensors by date:" %>
     <%= f.date_field :specified_date %>
     <%= f.submit "Search" %>
-  <% end %>
-</div>
+<% end %>
